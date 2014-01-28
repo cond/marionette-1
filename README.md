@@ -25,3 +25,28 @@ phantomJSの公式サイト http://phantomjs.org/ からダウンロードして
     $ wget https://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-i686.tar.bz2
     $ tar xvjf phantomjs-1.9.2-linux-i686.tar.bz2 
     $ sudo cp phantomjs-1.9.2-linux-i686/bin/phantomjs  /usr/local/bin
+
+### Yoeman, Grunt, Bowerをインストールする
+
+    $ npm install -g yo grunt-cli bower
+
+### mocha-phantomjsをインストール
+
+    $ npm install -g mocha-phantomjs
+
+### mochaジェネレータをインストール
+
+    $ npm install generator-mocha-amd
+
+### marionetteジェネレータをインストール
+
+    $ npm install generator-marionette
+
+### プロジェクトを作って実行してみる
+
+    $ yo marionette
+
+生成したアプリケーションを実行する
+
+    $ grunt
+
