@@ -50,3 +50,7 @@ phantomJSの公式サイト http://phantomjs.org/ からダウンロードして
 
     $ grunt
 
+ここでcompass/rubyが無いと言わるので、インストールする
+
+    $ gem update --system
+    $ gem install compass
