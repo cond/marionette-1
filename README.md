@@ -120,3 +120,52 @@ listen EADDRINUSEなので、expressが使おうとしたポート9000をすで�
 再びgruntコマンドを実行すると、ブラウザが立ち上がり、「CONGRATS!」という画面が表示される。
 
 これでOK。
+
+### Gitにコミットする
+
+yeomanのジェネレータは.gitignoreファイルも生成してくれる。だから、yo marionetteした状態で
+
+    $ git add .
+    $ git commit -v
+
+を実行すればファイル一式をコミットできる。
+
+この際に、.gitignoreに自分用の設定を追加すればよい。
+
+    *~
+    #*
+
+## Gitリポジトリからcloneして開発を始める手順
+
+### リポジトリをcloneする
+
+    $ git clone git@github.com:cond/marionette-1.git
+
+### 作業ディレクトリに移動する
+
+    $ cd marionette-1
+
+### 「環境設定」の手順に従って必要な環境を整える。
+
+npm install -gでインストールしたものは、すでに入っていると仮定。
+
+generatorをイントールする。
+
+    $ npm install generator-mocha-amd
+    $ npm install generator-marionette
+
+### 必要なnpmパッケージをインストール
+
+このコマンドはpackage.jsonで指定されているパッケージをインストールしてくれる。
+
+    $ npm install
+
+### bowerパッケージをインストール
+
+    $ bower install
+
+### gruntを実行して確認
+
+これで開発できる環境が出来上がっている。gruntを実行して確認する。
+
+    $ grunt
