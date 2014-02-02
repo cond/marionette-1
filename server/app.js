@@ -32,7 +32,7 @@ db.once('open', function callback () {
 	var app = express();
 
 	app.configure(function(){
-	    app.set('port', 9000);
+	    app.set('port', 9001);
 
 	    app.set('view engine', 'handlebars');
 	    app.set('views', __dirname + '../app/scripts/views');
