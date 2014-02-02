@@ -61,19 +61,19 @@ phantomJSの公式サイト http://phantomjs.org/ からダウンロードして
     Starting background Express server
     
     events.js:72
-	    throw er; // Unhandled 'error' event
-		  ^
+            throw er; // Unhandled 'error' event
+                  ^
     Error: listen EADDRINUSE
-	at errnoException (net.js:901:11)
-	at Server._listen2 (net.js:1039:14)
-	at listen (net.js:1061:10)
-	at Server.listen (net.js:1127:5)
-	at NativeConnection.callback (/home/cond/proj/marionette-1/server/app.js:60:25)
-	at NativeConnection.g (events.js:175:14)
-	at NativeConnection.EventEmitter.emit (events.js:92:17)
-	at open (/home/cond/proj/marionette-1/node_modules/mongoose/lib/connection.js:446:10)
-	at NativeConnection.Connection.onOpen (/home/cond/proj/marionette-1/node_modules/mongoose/lib/connection.js:454:5)
-	at /home/cond/proj/marionette-1/node_modules/mongoose/lib/connection.js:414:10
+        at errnoException (net.js:901:11)
+        at Server._listen2 (net.js:1039:14)
+        at listen (net.js:1061:10)
+        at Server.listen (net.js:1127:5)
+        at NativeConnection.callback (/home/cond/proj/marionette-1/server/app.js:60:25)
+        at NativeConnection.g (events.js:175:14)
+        at NativeConnection.EventEmitter.emit (events.js:92:17)
+        at open (/home/cond/proj/marionette-1/node_modules/mongoose/lib/connection.js:446:10)
+        at NativeConnection.Connection.onOpen (/home/cond/proj/marionette-1/node_modules/mongoose/lib/connection.js:454:5)
+        at /home/cond/proj/marionette-1/node_modules/mongoose/lib/connection.js:414:10
 
 listen EADDRINUSEなので、expressが使おうとしたポート9000をすでに誰かが使っているというエラー。調べると、ポート9000は、Nginxとphpサーバの通信に使われている。
 
@@ -90,5 +90,33 @@ listen EADDRINUSEなので、expressが使おうとしたポート9000をすで�
 
 変更は2か所。それぞれ9000を9001に変更する。
 
-Gruntfile.js
-server/app.js
+    diff --git a/Gruntfile.js b/Gruntfile.js
+    index 17ab709..120d6f7 100644
+    --- a/Gruntfile.js
+    +++ b/Gruntfile.js
+    @@ -82,7 +82,7 @@ module.exports = function (grunt) {
+             express: {
+                 options: {
+                     // Override defaults here
+    -                port: '9000'
+    +                port: '9001'
+                 },
+                 dev: {
+                     options: {
+    diff --git a/server/app.js b/server/app.js
+    index 01ba505..9d58bf6 100644
+    --- a/server/app.js
+    +++ b/server/app.js
+    @@ -32,7 +32,7 @@ db.once('open', function callback () {
+            var app = express();
+
+            app.configure(function(){
+    -       app.set('port', 9000);
+    +       app.set('port', 9001);
+
+                app.set('view engine', 'handlebars');
+                app.set('views', __dirname + '../app/scripts/views');
+
+再びgruntコマンドを実行すると、ブラウザが立ち上がり、「CONGRATS!」という画面が表示される。
+
+これでOK。
