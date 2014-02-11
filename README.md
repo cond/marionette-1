@@ -20,11 +20,11 @@ Ubuntu のパッケージでもインストール可能だが、12.04 LTSでは�
 
 phantomJSの公式サイト http://phantomjs.org/ からダウンロードしてインストールする。公式サイトの[ダウンロードページ](http://phantomjs.org/download.html)から、Linux用バイナリパッケージ(32ビット用と64ビット用がある)をダウンロードする。
 
-ここでは[32ビット用バイナリパッケージ](https://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-i686.tar.bz2)をダウンロードした。アーカイブを展開するとbinサブディレクトリの中にバイナリファイルphantomjsが入っているので、/usr/local/binにコピーすればよい。
+ここでは[32ビット用バイナリパッケージ](https://phantomjs.googlecode.com/files/phantomjs-1.9.7-linux-i686.tar.bz2)をダウンロードした。アーカイブを展開するとbinサブディレクトリの中にバイナリファイルphantomjsが入っているので、/usr/local/binにコピーすればよい。
 
-    $ wget https://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-i686.tar.bz2
-    $ tar xvjf phantomjs-1.9.2-linux-i686.tar.bz2 
-    $ sudo cp phantomjs-1.9.2-linux-i686/bin/phantomjs  /usr/local/bin
+    $ wget https://phantomjs.googlecode.com/files/phantomjs-1.9.7-linux-i686.tar.bz2
+    $ tar xvjf phantomjs-1.9.7-linux-i686.tar.bz2
+    $ sudo cp phantomjs-1.9.7-linux-i686/bin/phantomjs  /usr/local/bin
 
 ### Yoeman, Grunt, Bowerをインストールする
 
@@ -36,11 +36,11 @@ phantomJSの公式サイト http://phantomjs.org/ からダウンロードして
 
 ### mochaジェネレータをインストール
 
-    $ npm install generator-mocha-amd
+    $ npm install -g generator-mocha-amd
 
 ### marionetteジェネレータをインストール
 
-    $ npm install generator-marionette
+    $ npm install -g generator-marionette
 
 ### プロジェクトを作って実行してみる
 
@@ -148,11 +148,6 @@ yeomanのジェネレータは.gitignoreファイルも生成してくれる。�
 ### 「環境設定」の手順に従って必要な環境を整える。
 
 npm install -gでインストールしたものは、すでに入っていると仮定。
-
-generatorをイントールする。
-
-    $ npm install generator-mocha-amd
-    $ npm install generator-marionette
 
 ### 必要なnpmパッケージをインストール
 
